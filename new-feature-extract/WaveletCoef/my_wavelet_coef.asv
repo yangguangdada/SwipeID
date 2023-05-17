@@ -1,0 +1,10 @@
+function WaveletCof = my_wavelet_cof(signal)
+
+wtecg = modwt(signal);
+% [r,c] = size(A);
+
+[WaveletCof, i] = max(wtecg,[], 2);
+
+WaveletCof = WaveletCof(1:12,1);
+end
+
