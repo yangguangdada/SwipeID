@@ -18,12 +18,14 @@ buildscript {
     }
 
     repositories {
-        jcenter()
-        google()
+        maven { url 'http://maven.aliyun.com/repository/jcenter'}
+        maven { url 'https://maven.aliyun.com/repository/google'} //对应于google()
+        maven { url 'https://maven.aliyun.com/repository/central'} //对应于mavenCentral()
+        maven { url 'https://jitpack.io' }                                             //对应于jitpack()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath 'com.android.tools.build:gradle:4.0.1'  //android plugin 版本
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 
@@ -34,9 +36,9 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
-        google()
-        mavenCentral()
+        maven { url 'http://maven.aliyun.com/repository/jcenter'}
+        maven { url 'https://maven.aliyun.com/repository/google'}
+        maven { url 'https://maven.aliyun.com/repository/central'}
         maven { url 'https://jitpack.io' }
     }
 }
