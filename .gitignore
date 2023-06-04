@@ -33,3 +33,6 @@ google-services.json
 *.hprof
 
 out/*
+.idea/*
+SwipeID.iml
+

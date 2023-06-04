@@ -40,7 +40,7 @@ public class FileServer {
                     long bytesLeft = fileSize;
 
                     while (bytesLeft > 0 && (bytesRead = dataInputStream.read(buffer, 0, (int) Math.min(buffer.length, bytesLeft))) != -1) {
-                        //fileOutputStream.write(buffer, 0, bytesRead);
+                        fileOutputStream.write(buffer, 0, bytesRead);
                         bytesLeft -= bytesRead;
                     }
 
