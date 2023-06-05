@@ -109,7 +109,7 @@ public class MySocket {
         Random rand=new Random();
         int id = rand.nextInt(1000000);
         writer.write(String.valueOf(id));
-        //读取返回结果
+        //读取服务器返回数据包
         int type = reader.read();
         int result = reader.read();
         int ackid = reader.read();
