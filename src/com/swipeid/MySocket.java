@@ -87,10 +87,6 @@ public class MySocket {
                 }
             }
             writer.flush();
-            //读取服务器返回数据包
-            int type = reader.read();
-            int result = reader.read();
-            int ackid = reader.read();
             writer.close();
             socket.close();
         }catch (UnknownHostException e){
@@ -117,7 +113,7 @@ public class MySocket {
         int type = reader.read();
         int result = reader.read();
         int ackid = reader.read();
-        if(result == 1 && ackid == id) return true;
+        if(type == 5 && result == 1 && ackid == id) return true;
         writer.flush();
         writer.close();
         socket.close();
