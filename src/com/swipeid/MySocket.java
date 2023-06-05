@@ -113,10 +113,10 @@ public class MySocket {
         int type = reader.read();
         int result = reader.read();
         int ackid = reader.read();
-        if(type == 5 && result == 1 && ackid == id) return true;
         writer.flush();
         writer.close();
         socket.close();
+        if(type == 5 && result == 1 && ackid == id) return true;
         }catch (UnknownHostException e){
             e.printStackTrace();
             Log.e(TAG, ("Request:" + e.getMessage()));
