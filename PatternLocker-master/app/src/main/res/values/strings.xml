@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">声指纹解锁</string>
-    <string name="title_default_style">Default Style</string>
-    <string name="title_simple_style">手势识别验证</string>
-<!--    <string name="title_whole_style">完全自定义样式</string>-->
-
-    <string name="title_pattern_setting">Set Pattern Password</string>
-    <string name="title_pattern_checking">Validate Pattern Password</string>
-</resources>

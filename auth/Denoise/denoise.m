@@ -1,4 +1,4 @@
-function denoise(filename, path)
+function result = denoise(filename, path)
     % filename 音频文件名
     % path 路径名
     % 去噪音频被保存在denoise子目录下 命名 filename-Denoise.wav
@@ -20,10 +20,15 @@ function denoise(filename, path)
 
     file_wav = fullfile(basepath, [name '.wav']);
     file_filter = fullfile(one_path, [name '-filter.wav']);
-    file_enhance = fullfile(one_path, [name '-Ehance.wav']);
-    file_denoise = fullfile(one_Denoise_path, [name '-Denoise.wav']);
+    file_enhance = fullfile(one_path, [name '-ehan.wav']);
+    file_denoise = fullfile(one_Denoise_path, [name '-den.wav']);
     
     [Y0,Fs]=audioread(file_wav);  %读取音频文件。波数据读入Y1中，波形的幅度范围在[-1, 1]。Fs存的是采样率，单位 Hz 
+    % 剔除坏样本 
+    if all(Y0==0,'all') 
+        result = 0;
+        return;
+    end 
     oy = Y0;
     
     % 1. 去除低频信号,并消除滤波器带来的延迟
@@ -31,7 +36,6 @@ function denoise(filename, path)
     delay = floor(mean(grpdelay(highfir)));
     Y0(1:delay) = [];
     audiowrite(file_filter, Y0, Fs);    %得到滤波后的文件
-    
     
     % 2. 进行多频带频谱减法
     Y1=audioread(file_filter);  
@@ -51,7 +55,7 @@ function denoise(filename, path)
     end
     Y3=imodwt(XD,wname);    %重构
     audiowrite(file_denoise, Y3, Fs);
-    
+    result = 1;
     toc;
     disp([filename ' denoise cost ' num2str(toc) 's']);
     end

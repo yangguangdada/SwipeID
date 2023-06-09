@@ -5,7 +5,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-
 import com.mathworks.engine.MatlabEngine;
 import com.swipeid.ConnectionHandler;
 
@@ -18,8 +17,8 @@ public class SwipeIDServer {
             System.out.println("Waiting for connection ......");
             while(true){
                 Socket socket = serverSocket.accept();
-                System.out.println("客户端已连接 port:"+socket.getRemoteSocketAddress());
                 new Thread(new ConnectionHandler(socket, matlabEngineFuture)).start();
+
             }
         }catch (IOException e){
             e.printStackTrace();

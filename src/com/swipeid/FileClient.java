@@ -41,7 +41,6 @@ public class FileClient {
 
         }
     }
-
     private static class FileSender implements Runnable{
         private Socket socket;
         private String filename;
@@ -75,6 +74,4 @@ public class FileClient {
             }
         }
     }
-
-
 }

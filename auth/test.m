@@ -1,49 +1,13 @@
 
+ addpath(genpath('.\RASTA-PLP'),genpath('.\MFCC'),genpath('.\LPCC'), ...
+        genpath('.\Level1'),genpath('.\LPC'),genpath('.\LSF'), ...
+        genpath('.\SpectralStatistics'),genpath('.\WaveletCoef'),genpath('.\FilterBank'), ...
+        genpath('.\Denoise'),genpath('.\utils'));
+    
+% register_user('lxq', 'slide','as','models');
+% register_user('zjr', 'slide','as','models');
 
-% register_user('lmy', 'as', 'models\');
-% register_user('wcx', 'as', 'models\');
+val_user('lxq','handwriting','../data/val','../Models');
+% val_user('zjr','slide','val','models');
 
-
-%val_user('lxq','models\','data\val\');
-
-
-
-
-
-
-
-
-
-
-
-% load fisheriris
-% X = meas(:,1:2);
-% y = ones(size(X,1),1);
-% 
-% rng(1)
-% SVMModel = fitcsvm(X,y,'KernelScale','auto','Standardize',true,...
-%     'OutlierFraction',0.05);
-% svInd = SVMModel.IsSupportVector;
-% h = 0.02; % Mesh grid step size
-% [X1,X2] = meshgrid(min(X(:,1)):h:max(X(:,1)),...
-%     min(X(:,2)):h:max(X(:,2)));
-% % 预测分数
-% [~,score] = predict(SVMModel,[X1(:),X2(:)]);
-% scoreGrid = reshape(score,size(X1,1),size(X2,2));
-% 
-% figure
-% plot(X(:,1),X(:,2),'k.')
-% hold on
-% plot(X(svInd,1),X(svInd,2),'ro','MarkerSize',10)
-% contour(X1,X2,scoreGrid)
-% colorbar;
-% title('{\bf Iris Outlier Detection via One-Class SVM}')
-% xlabel('Sepal Length (cm)')
-% ylabel('Sepal Width (cm)')
-% legend('Observation','Support Vector')
-% hold off
-% 
-% 
-% CVSVMModel = crossval(SVMModel);
-% [~,scorePred] = kfoldPredict(CVSVMModel);
-% outlierRate = mean(scorePred<0)
+% valtxt('../data/val/lxq/click/1686239708835/', '../models/lxq/click/model_1.mat');
