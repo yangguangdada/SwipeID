@@ -3,26 +3,26 @@
 % trainwav('as/zjr/slide/','models/zjr/slide/');
 
 % 特征加载脚本
-load('models/lxq/slide/model_0.mat');
+load('../Models/lxq/slide/model_0.mat');
 features_lxq = features_wav;
-load('models/zjr/slide/model_0.mat');
-features_zjr = features_wav;
+% load('../Models/zjr/slide/model_0.mat');
+% features_zjr = features_wav;
 
 % 模型加载
-load('models/lxq/slide/model_0.mat');
+load('../Models/lxq/slide/model_0.mat');
 % load('models/zjr/slide/model_0.mat');
 
 % 攻击验证
-[labels,scores] = predict(svm_model_0,features_zjr);
-disp(mean(scores));
-disp(mean(scores<0));
-
-% 交叉验证
-% CVSVM = crossval(svm_model_0);
-% error = kfoldLoss(CVSVM);
-% [labels, scores] = kfoldPredict(CVSVM);
+% [labels,scores] = predict(svm_model_0,features_zjr);
 % disp(mean(scores));
 % disp(mean(scores<0));
+
+% 交叉验证
+CVSVM = crossval(svm_model_0);
+error = kfoldLoss(CVSVM);
+[labels, scores] = kfoldPredict(CVSVM);
+disp(mean(scores));
+disp(mean(scores<0));
 
 
 

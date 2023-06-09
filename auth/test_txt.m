@@ -8,7 +8,7 @@
 % traintxt('as/zjr/slide/','models/zjr/slide/');
 
 
-load('models/lxq/slide/model_1.mat');
+load('../Models/lxq/slide/model_1.mat');
 % load('models/xyz/slide/model_1.mat');
 % load('models/zjr/slide/model_1.mat');
 

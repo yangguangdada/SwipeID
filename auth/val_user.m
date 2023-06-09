@@ -30,7 +30,7 @@ function result = val_user(username,behaviour_type, val_path, model_path)
             scores_0 = valwav(val_path, model_path_0);
             scores_1 = valtxt(val_path, model_path_1);
     end
-    threshold_wav = -0.1;
+    threshold_wav = -0.8;
     threshold_txt = -0.05;
     auth0 = 1;
     auth1 = 1; 
